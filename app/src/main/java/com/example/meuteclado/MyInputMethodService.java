@@ -9,43 +9,51 @@ import android.widget.Button;
 
 public class MyInputMethodService extends InputMethodService {
 
+    private boolean isShifted = false;
+
     @Override
     public View onCreateInputView() {
-        // Carrega o layout do teclado
         View keyboardView = LayoutInflater.from(this).inflate(R.layout.keyboard_layout, null);
 
-        // Pega a conexão de input (o campo de texto onde o teclado está escrevendo)
         InputConnection inputConnection = getCurrentInputConnection();
 
-        // Função para configurar cada botão de letra
-        setupKey(keyboardView, R.id.key_q, "Q");
-        setupKey(keyboardView, R.id.key_w, "W");
-        setupKey(keyboardView, R.id.key_e, "E");
-        setupKey(keyboardView, R.id.key_r, "R");
-        setupKey(keyboardView, R.id.key_t, "T");
-        setupKey(keyboardView, R.id.key_y, "Y");
-        setupKey(keyboardView, R.id.key_u, "U");
-        setupKey(keyboardView, R.id.key_i, "I");
-        setupKey(keyboardView, R.id.key_o, "O");
-        setupKey(keyboardView, R.id.key_p, "P");
+        setupKey(keyboardView, R.id.key_q, "q");
+        setupKey(keyboardView, R.id.key_w, "w");
+        setupKey(keyboardView, R.id.key_e, "e");
+        setupKey(keyboardView, R.id.key_r, "r");
+        setupKey(keyboardView, R.id.key_t, "t");
+        setupKey(keyboardView, R.id.key_y, "y");
+        setupKey(keyboardView, R.id.key_u, "u");
+        setupKey(keyboardView, R.id.key_i, "i");
+        setupKey(keyboardView, R.id.key_o, "o");
+        setupKey(keyboardView, R.id.key_p, "p");
 
-        setupKey(keyboardView, R.id.key_a, "A");
-        setupKey(keyboardView, R.id.key_s, "S");
-        setupKey(keyboardView, R.id.key_d, "D");
-        setupKey(keyboardView, R.id.key_f, "F");
-        setupKey(keyboardView, R.id.key_g, "G");
-        setupKey(keyboardView, R.id.key_h, "H");
-        setupKey(keyboardView, R.id.key_j, "J");
-        setupKey(keyboardView, R.id.key_k, "K");
-        setupKey(keyboardView, R.id.key_l, "L");
+        setupKey(keyboardView, R.id.key_a, "a");
+        setupKey(keyboardView, R.id.key_s, "s");
+        setupKey(keyboardView, R.id.key_d, "d");
+        setupKey(keyboardView, R.id.key_f, "f");
+        setupKey(keyboardView, R.id.key_g, "g");
+        setupKey(keyboardView, R.id.key_h, "h");
+        setupKey(keyboardView, R.id.key_j, "j");
+        setupKey(keyboardView, R.id.key_k, "k");
+        setupKey(keyboardView, R.id.key_l, "l");
 
-        setupKey(keyboardView, R.id.key_z, "Z");
-        setupKey(keyboardView, R.id.key_x, "X");
-        setupKey(keyboardView, R.id.key_c, "C");
-        setupKey(keyboardView, R.id.key_v, "V");
-        setupKey(keyboardView, R.id.key_b, "B");
-        setupKey(keyboardView, R.id.key_n, "N");
-        setupKey(keyboardView, R.id.key_m, "M");
+        setupKey(keyboardView, R.id.key_z, "z");
+        setupKey(keyboardView, R.id.key_x, "x");
+        setupKey(keyboardView, R.id.key_c, "c");
+        setupKey(keyboardView, R.id.key_v, "v");
+        setupKey(keyboardView, R.id.key_b, "b");
+        setupKey(keyboardView, R.id.key_n, "n");
+        setupKey(keyboardView, R.id.key_m, "m");
+
+        setupKey(keyboardView, R.id.virgula, ",");
+        setupKey(keyboardView, R.id.ponto, ".");
+
+        setupDeleteKey(keyboardView);
+        setupShiftKey(keyboardView);
+        setupNumericKeyButton(keyboardView);
+        setupSpaceKey(keyboardView);
+        setupDoneKey(keyboardView);
 
         return keyboardView;
     }
@@ -53,11 +61,62 @@ public class MyInputMethodService extends InputMethodService {
     private void setupKey(View keyboardView, int buttonId, String text) {
         Button button = keyboardView.findViewById(buttonId);
         button.setOnClickListener(v -> {
-            // Obter a conexão de entrada sempre que um botão é pressionado
             InputConnection inputConnection = getCurrentInputConnection();
             if (inputConnection != null) {
-                inputConnection.commitText(text, 1);
+                String finalText = isShifted ? text.toUpperCase() : text.toLowerCase();
+                inputConnection.commitText(finalText, 1);
             }
         });
     }
+
+    private void setupDeleteKey(View keyboardView) {
+        Button deleteButton = keyboardView.findViewById(R.id.delete);
+        deleteButton.setOnClickListener(v -> {
+            InputConnection inputConnection = getCurrentInputConnection();
+            if (inputConnection != null) {
+                inputConnection.deleteSurroundingText(1, 0);
+            }
+        });
+    }
+
+    private void setupShiftKey(View keyboardView) {
+        Button shiftButton = keyboardView.findViewById(R.id.shift);
+        shiftButton.setOnClickListener(v -> {
+
+            if (isShifted) {
+                isShifted = false;
+            } else {
+                isShifted = true;
+            }
+        });
+    }
+
+    private void setupNumericKeyButton(View keyboardView) {
+        Button numericButton = keyboardView.findViewById(R.id.numeros);
+        numericButton.setOnClickListener(v -> {
+            // Lógica para mudar para o teclado numérico
+            //setNumericKeyboard();
+        });
+    }
+
+    private void setupSpaceKey(View keyboardView) {
+        Button spaceButton = keyboardView.findViewById(R.id.space);
+        spaceButton.setOnClickListener(v -> {
+            InputConnection inputConnection = getCurrentInputConnection();
+            if (inputConnection != null) {
+                inputConnection.commitText(" ", 1);
+            }
+        });
+    }
+
+    private void setupDoneKey(View keyboardView) {
+        Button doneButton = keyboardView.findViewById(R.id.done);
+        doneButton.setOnClickListener(v -> {
+            InputConnection inputConnection = getCurrentInputConnection();
+            if (inputConnection != null) {
+                inputConnection.finishComposingText();
+            }
+        });
+    }
+
 }

@@ -27,6 +27,12 @@
     <string name="key_x">x</string>
     <string name="key_y">y</string>
     <string name="key_z">z</string>
+    <string name="shift">⇑</string>
+    <string name="delete">⌫</string>
+    <string name="numeros">½</string>
+    <string name="virgula">,</string>
+    <string name="ponto">.</string>
+    <string name="done">↵</string>
 
 
 </resources>
