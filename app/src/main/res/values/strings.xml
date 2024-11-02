@@ -4,6 +4,7 @@
     <string name="key_a">a</string>
     <string name="key_b">b</string>
     <string name="key_c">c</string>
+    <string name="key_ç">ç</string>
     <string name="key_d">d</string>
     <string name="key_e">e</string>
     <string name="key_f">f</string>
@@ -34,5 +35,36 @@
     <string name="ponto">.</string>
     <string name="done">↵</string>
 
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_0">0</string>
+
+    <string name="arroba">"@"</string>
+    <string name="jogodavelha">#</string>
+    <string name="cifrão">$</string>
+    <string name="underlina">_</string>
+    <string name="ecomercial">&amp;</string>
+    <string name="menos">-</string>
+    <string name="mais">+</string>
+    <string name="parenteses1">(</string>
+    <string name="parenteses2">)</string>
+    <string name="barra">/</string>
+
+    <string name="asterisco">*</string>
+    <string name="aspasduplas">\"</string>
+    <string name="aspassimples">"'"</string>
+    <string name="doispontos">:</string>
+    <string name="pontoevirgula">;</string>
+    <string name="exclamacao">!</string>
+    <string name="interrogacao">"?"</string>
+
+    <string name="alfabeto">ABC</string>
 
 </resources>

@@ -1,7 +1,6 @@
 package com.example.meuteclado;
 
 import android.inputmethodservice.InputMethodService;
-import android.inputmethodservice.KeyboardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
@@ -10,13 +9,22 @@ import android.widget.Button;
 public class MyInputMethodService extends InputMethodService {
 
     private boolean isShifted = false;
+    private boolean isNumericMode = false;
+    private View alphabeticKeyboardView;
+    private View numericKeyboardView;
 
     @Override
     public View onCreateInputView() {
-        View keyboardView = LayoutInflater.from(this).inflate(R.layout.keyboard_layout, null);
+        alphabeticKeyboardView = LayoutInflater.from(this).inflate(R.layout.keyboard_layout, null);
+        numericKeyboardView = LayoutInflater.from(this).inflate(R.layout.numeric_layout, null);
 
-        InputConnection inputConnection = getCurrentInputConnection();
+        setupAlphabeticKeyboard(alphabeticKeyboardView);
+        setupNumericKeyboard(numericKeyboardView);
 
+        return alphabeticKeyboardView;
+    }
+
+    private void setupAlphabeticKeyboard(View keyboardView) {
         setupKey(keyboardView, R.id.key_q, "q");
         setupKey(keyboardView, R.id.key_w, "w");
         setupKey(keyboardView, R.id.key_e, "e");
@@ -54,8 +62,49 @@ public class MyInputMethodService extends InputMethodService {
         setupNumericKeyButton(keyboardView);
         setupSpaceKey(keyboardView);
         setupDoneKey(keyboardView);
+    }
 
-        return keyboardView;
+    private void setupNumericKeyboard(View keyboardView) {
+        setupKey(keyboardView, R.id.key_0, "0");
+        setupKey(keyboardView, R.id.key_1, "1");
+        setupKey(keyboardView, R.id.key_2, "2");
+        setupKey(keyboardView, R.id.key_3, "3");
+        setupKey(keyboardView, R.id.key_4, "4");
+        setupKey(keyboardView, R.id.key_5, "5");
+        setupKey(keyboardView, R.id.key_6, "6");
+        setupKey(keyboardView, R.id.key_7, "7");
+        setupKey(keyboardView, R.id.key_8, "8");
+        setupKey(keyboardView, R.id.key_9, "9");
+
+        setupKey(keyboardView, R.id.arroba, "@");
+        setupKey(keyboardView, R.id.jogodavelha, "#");
+        setupKey(keyboardView, R.id.cifrao, "$");
+        setupKey(keyboardView, R.id.underline, "_");
+        setupKey(keyboardView, R.id.ecomercial, "&");
+        setupKey(keyboardView, R.id.menos, "-");
+        setupKey(keyboardView, R.id.mais, "+");
+        setupKey(keyboardView, R.id.parenteses1, "(");
+        setupKey(keyboardView, R.id.parenteses2, ")");
+        setupKey(keyboardView, R.id.barra, "/");
+
+        setupKey(keyboardView, R.id.asterisco, "*");
+        setupKey(keyboardView, R.id.aspasduplas, "\"");
+        setupKey(keyboardView, R.id.asplassimples, "'");
+        setupKey(keyboardView, R.id.doispontos, ":");
+        setupKey(keyboardView, R.id.pontoevirgula, ";");
+        setupKey(keyboardView, R.id.exclamacao, "!");
+        setupKey(keyboardView, R.id.interrogacao, "?");
+
+        setupKey(keyboardView, R.id.virgula, ",");
+        setupKey(keyboardView, R.id.ponto, ".");
+
+        setupDeleteKey(keyboardView);
+        setupShiftKey(keyboardView);
+        setupSpaceKey(keyboardView);
+        setupDoneKey(keyboardView);
+
+        Button alphaSwitchButton = keyboardView.findViewById(R.id.alfabeto);
+        alphaSwitchButton.setOnClickListener(v -> switchToAlphabeticKeyboard());
     }
 
     private void setupKey(View keyboardView, int buttonId, String text) {
@@ -82,21 +131,13 @@ public class MyInputMethodService extends InputMethodService {
     private void setupShiftKey(View keyboardView) {
         Button shiftButton = keyboardView.findViewById(R.id.shift);
         shiftButton.setOnClickListener(v -> {
-
-            if (isShifted) {
-                isShifted = false;
-            } else {
-                isShifted = true;
-            }
+            isShifted = !isShifted;
         });
     }
 
     private void setupNumericKeyButton(View keyboardView) {
         Button numericButton = keyboardView.findViewById(R.id.numeros);
-        numericButton.setOnClickListener(v -> {
-            // Lógica para mudar para o teclado numérico
-            //setNumericKeyboard();
-        });
+        numericButton.setOnClickListener(v -> switchToNumericKeyboard());
     }
 
     private void setupSpaceKey(View keyboardView) {
@@ -119,4 +160,13 @@ public class MyInputMethodService extends InputMethodService {
         });
     }
 
+    private void switchToNumericKeyboard() {
+        isNumericMode = true;
+        setInputView(numericKeyboardView);
+    }
+
+    private void switchToAlphabeticKeyboard() {
+        isNumericMode = false;
+        setInputView(alphabeticKeyboardView);
+    }
 }

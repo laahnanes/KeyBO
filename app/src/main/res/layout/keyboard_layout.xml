@@ -38,6 +38,7 @@
         <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_j" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_k" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_l" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_ç" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_ç" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
     <!-- Terceira linha de letras -->
@@ -57,7 +58,7 @@
         <Button android:id="@+id/delete" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/delete" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
-    <!-- Quatro linha de letras -->
+    <!-- Quarta linha -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
