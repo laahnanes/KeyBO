@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#9999A0"
+    android:background="#C3C3C5"
     android:orientation="vertical">
 
     <!-- Primeira linha de letras -->
@@ -11,16 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/key_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_q" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_w" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_w" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_e" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_e" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_r" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_r" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_t" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_t" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_y" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_y" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_u" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_u" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_i" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_i" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_o" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_o" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_p" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_p" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_q" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_w" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_w" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_e" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_e" android:backgroundTint="#8A8DA0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_r" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_r" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_t" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_t" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_y" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_y" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_u" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_u" android:backgroundTint="#8A8DA0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_i" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_i" android:backgroundTint="#8A8DA0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_o" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_o" android:backgroundTint="#8A8DA0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_p" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_p" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
     <!-- Segunda linha de letras -->
@@ -29,16 +29,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/key_a" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_a" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_s" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_s" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_d" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_d" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_f" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_f" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_g" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_g" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_h" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_h" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_j" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_k" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_l" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_ç" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_ç" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_a" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_a" android:backgroundTint="#8A8DA0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_s" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_s" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_d" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_d" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_f" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_f" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_g" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_g" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_h" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_h" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_j" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_k" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_l" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_ç" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_ç" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
     <!-- Terceira linha de letras -->
@@ -48,13 +48,13 @@
         android:orientation="horizontal">
 
         <Button android:id="@+id/shift" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/shift" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_z" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_z" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_x" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_x" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_c" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_c" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_v" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_v" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_b" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_b" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_n" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_n" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_m" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_m" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_z" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_z" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_x" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_x" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_c" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_c" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_v" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_v" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_b" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_b" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_n" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_n" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_m" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_m" android:backgroundTint="#A48E8E" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/delete" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/delete" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 

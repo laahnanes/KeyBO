@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#9999A0"
+    android:background="#C3C3C5"
     android:orientation="vertical">
 
     <!-- Primeira linha de números -->
@@ -11,16 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/key_1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_1" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_2" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_3" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_4" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_5" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_6" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_7" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_7" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_8" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_8" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_9" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_9" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/key_0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_0" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_1" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_2" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_3" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_4" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_5" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_6" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_7" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_7" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_8" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_8" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_9" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_9" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/key_0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/key_0" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
     <!-- Segunda linha de símbolos -->
@@ -29,16 +29,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/arroba" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/arroba" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/jogodavelha" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/jogodavelha" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/cifrao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/cifrão" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/underline" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/underlina" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/ecomercial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ecomercial" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/menos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/menos" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/mais" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/mais" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/parenteses1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/parenteses1" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/parenteses2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/parenteses2" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/barra" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/barra" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/arroba" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/arroba" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/jogodavelha" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/jogodavelha" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/cifrao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/cifrão" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/underline" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/underlina" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/ecomercial" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ecomercial" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/menos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/menos" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/mais" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/mais" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/parenteses1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/parenteses1" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/parenteses2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/parenteses2" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/barra" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/barra" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
 
     </LinearLayout>
 
@@ -49,13 +49,13 @@
         android:orientation="horizontal">
 
         <Button android:id="@+id/shift" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/shift" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/asterisco" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/asterisco" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/aspasduplas" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/aspasduplas" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/asplassimples" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/aspassimples" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/doispontos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/doispontos" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/pontoevirgula" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/pontoevirgula" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/exclamacao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exclamacao" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/interrogacao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/interrogacao" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/asterisco" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/asterisco" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/aspasduplas" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/aspasduplas" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/asplassimples" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/aspassimples" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/doispontos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/doispontos" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/pontoevirgula" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/pontoevirgula" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/exclamacao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/exclamacao" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/interrogacao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/interrogacao" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/delete" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/delete" tools:ignore="ButtonStyle"/>
     </LinearLayout>
 
@@ -65,10 +65,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/alfabeto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/alfabeto" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/virgula" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/virgula" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/alfabeto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/alfabeto" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/virgula" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/virgula" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/space" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_weight="1" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/ponto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ponto" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/ponto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ponto" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/done" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/done" tools:ignore="ButtonStyle"/>
 
     </LinearLayout>
