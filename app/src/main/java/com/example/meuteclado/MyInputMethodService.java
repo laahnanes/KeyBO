@@ -45,6 +45,7 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_j, "j");
         setupKey(keyboardView, R.id.key_k, "k");
         setupKey(keyboardView, R.id.key_l, "l");
+        setupKey(alphabeticKeyboardView, R.id.key_ç, "ç");
 
         setupKey(keyboardView, R.id.key_z, "z");
         setupKey(keyboardView, R.id.key_x, "x");
@@ -53,6 +54,7 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_b, "b");
         setupKey(keyboardView, R.id.key_n, "n");
         setupKey(keyboardView, R.id.key_m, "m");
+
 
         setupKey(keyboardView, R.id.virgula, ",");
         setupKey(keyboardView, R.id.ponto, ".");
