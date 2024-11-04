@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 public class MyInputMethodService extends InputMethodService {
 
@@ -25,17 +27,20 @@ public class MyInputMethodService extends InputMethodService {
     }
 
     private void setupAlphabeticKeyboard(View keyboardView) {
+
+        //Primeira fileira
         setupKey(keyboardView, R.id.key_q, "q");
         setupKey(keyboardView, R.id.key_w, "w");
-        setupKey(keyboardView, R.id.key_e, "e");
+        setupKeyWithPopup(keyboardView, R.id.key_e, "e", new String[]{"é", "ê", "è"});
         setupKey(keyboardView, R.id.key_r, "r");
         setupKey(keyboardView, R.id.key_t, "t");
         setupKey(keyboardView, R.id.key_y, "y");
         setupKey(keyboardView, R.id.key_u, "u");
         setupKey(keyboardView, R.id.key_i, "i");
-        setupKey(keyboardView, R.id.key_o, "o");
+        setupKeyWithPopup(keyboardView, R.id.key_o, "o", new String[]{"ó", "ô", "ò"});
         setupKey(keyboardView, R.id.key_p, "p");
 
+        //Segunda fileira
         setupKey(keyboardView, R.id.key_a, "a");
         setupKey(keyboardView, R.id.key_s, "s");
         setupKey(keyboardView, R.id.key_d, "d");
@@ -45,8 +50,9 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_j, "j");
         setupKey(keyboardView, R.id.key_k, "k");
         setupKey(keyboardView, R.id.key_l, "l");
-        setupKey(alphabeticKeyboardView, R.id.key_ç, "ç");
+        setupKey(keyboardView, R.id.key_ç, "ç");
 
+        //Terceira fileira
         setupKey(keyboardView, R.id.key_z, "z");
         setupKey(keyboardView, R.id.key_x, "x");
         setupKey(keyboardView, R.id.key_c, "c");
@@ -55,9 +61,9 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_n, "n");
         setupKey(keyboardView, R.id.key_m, "m");
 
-
         setupKey(keyboardView, R.id.virgula, ",");
         setupKey(keyboardView, R.id.ponto, ".");
+
 
         setupDeleteKey(keyboardView);
         setupShiftKey(keyboardView);
@@ -109,6 +115,45 @@ public class MyInputMethodService extends InputMethodService {
         alphaSwitchButton.setOnClickListener(v -> switchToAlphabeticKeyboard());
     }
 
+    private void setupKeyWithPopup(View keyboardView, int buttonId, String text, String[] popupOptions) {
+        Button button = keyboardView.findViewById(buttonId);
+        button.setOnClickListener(v -> {
+            InputConnection inputConnection = getCurrentInputConnection();
+            if (inputConnection != null) {
+                String finalText = isShifted ? text.toUpperCase() : text.toLowerCase();
+                inputConnection.commitText(finalText, 1);
+            }
+        });
+
+        button.setOnLongClickListener(v -> {
+            showPopupOptions(v, popupOptions);
+            return true;
+        });
+    }
+
+    private void showPopupOptions(View anchorView, String[] options) {
+        LinearLayout popupLayout = new LinearLayout(this);
+        popupLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+        PopupWindow popupWindow = new PopupWindow(popupLayout, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        for (String option : options) {
+            Button optionButton = new Button(this);
+            optionButton.setText(option);
+            optionButton.setOnClickListener(v -> {
+                InputConnection inputConnection = getCurrentInputConnection();
+                if (inputConnection != null) {
+                    inputConnection.commitText(option, 1);
+                }
+                popupWindow.dismiss();
+            });
+            popupLayout.addView(optionButton);
+        }
+
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.showAsDropDown(anchorView, 0, -anchorView.getHeight());
+    }
+
     private void setupKey(View keyboardView, int buttonId, String text) {
         Button button = keyboardView.findViewById(buttonId);
         button.setOnClickListener(v -> {
@@ -157,7 +202,7 @@ public class MyInputMethodService extends InputMethodService {
         doneButton.setOnClickListener(v -> {
             InputConnection inputConnection = getCurrentInputConnection();
             if (inputConnection != null) {
-                inputConnection.finishComposingText();
+                inputConnection.commitText("\n", 1);
             }
         });
     }
