@@ -41,7 +41,7 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_p, "p");
 
         //Segunda fileira
-        setupKey(keyboardView, R.id.key_a, "a");
+        setupKeyWithPopup(keyboardView, R.id.key_a, "a", new String[]{"á", "â", "è"});
         setupKey(keyboardView, R.id.key_s, "s");
         setupKey(keyboardView, R.id.key_d, "d");
         setupKey(keyboardView, R.id.key_f, "f");
