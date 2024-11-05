@@ -67,9 +67,9 @@
 
         <Button android:id="@+id/alfabeto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/alfabeto" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/virgula" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/virgula" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/space" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_weight="1" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/space" android:layout_width="60dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ESPAÇO" tools:ignore="ButtonStyle"/>
         <Button android:id="@+id/ponto" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/ponto" android:fontFamily="@font/opendyslexic" tools:ignore="ButtonStyle"/>
-        <Button android:id="@+id/done" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/done" tools:ignore="ButtonStyle"/>
+        <Button android:id="@+id/done" android:layout_width="10dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="↩" android:backgroundTint="#66ffff" tools:ignore="ButtonStyle"/>
 
     </LinearLayout>
 
