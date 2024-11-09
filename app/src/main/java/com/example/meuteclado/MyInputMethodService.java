@@ -250,15 +250,11 @@ public class MyInputMethodService extends InputMethodService {
     }
 
     private void verificarOrtografia(String palavra) {
-        if (spellCheckerSession != null) {
-            spellCheckerSession.getSuggestions(
-                    new android.view.textservice.TextInfo(palavra),
-                    5
-            );
-        } else {
-            Log.e("MeuTeclado", "SpellCheckerSession está nula");
+        if (spellCheckerSession != null && palavra.length() > 2) {
+            spellCheckerSession.getSuggestions(new android.view.textservice.TextInfo(palavra), 5);
         }
     }
+
 
     @Override
     public void onDestroy() {
