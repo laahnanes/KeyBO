@@ -1,12 +1,25 @@
 package com.example.meuteclado;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.inputmethodservice.InputMethodService;
+import android.os.Build;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
+import android.view.textservice.SentenceSuggestionsInfo;
+import android.view.textservice.SuggestionsInfo;
+import android.view.textservice.TextServicesManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.view.textservice.SpellCheckerSession;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class MyInputMethodService extends InputMethodService {
 
@@ -14,6 +27,36 @@ public class MyInputMethodService extends InputMethodService {
     private boolean isNumericMode = false;
     private View alphabeticKeyboardView;
     private View numericKeyboardView;
+
+    private TextServicesManager textServicesManager;
+    private SpellCheckerSession spellCheckerSession;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        textServicesManager = (TextServicesManager) getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE);
+        if (textServicesManager != null) {
+            spellCheckerSession = textServicesManager.newSpellCheckerSession(
+                    null, Locale.getDefault(), new SpellCheckerSession.SpellCheckerSessionListener() {
+                        @Override
+                        public void onGetSuggestions(SuggestionsInfo[] results) {
+                            if (results != null && results.length > 0) {
+                                List<String> sugestoes = new ArrayList<>();
+                                for (int i = 0; i < results[0].getSuggestionsCount(); i++) {
+                                    sugestoes.add(results[0].getSuggestionAt(i));
+                                }
+                                mostrarSugestoes(sugestoes);
+                            }
+                        }
+
+                        @Override
+                        public void onGetSentenceSuggestions(SentenceSuggestionsInfo[] results) {
+                            // Deixar por padrão do Google Natural!
+                        }
+                    }, true
+            );
+        }
+    }
 
     @Override
     public View onCreateInputView() {
@@ -27,8 +70,7 @@ public class MyInputMethodService extends InputMethodService {
     }
 
     private void setupAlphabeticKeyboard(View keyboardView) {
-
-        //Primeira fileira
+        // Primeira fileira
         setupKey(keyboardView, R.id.key_q, "q");
         setupKey(keyboardView, R.id.key_w, "w");
         setupKeyWithPopup(keyboardView, R.id.key_e, "e", new String[]{"é", "ê", "è"});
@@ -40,7 +82,7 @@ public class MyInputMethodService extends InputMethodService {
         setupKeyWithPopup(keyboardView, R.id.key_o, "o", new String[]{"ó", "ô", "ò"});
         setupKey(keyboardView, R.id.key_p, "p");
 
-        //Segunda fileira
+        // Segunda fileira
         setupKeyWithPopup(keyboardView, R.id.key_a, "a", new String[]{"á", "â", "à"});
         setupKey(keyboardView, R.id.key_s, "s");
         setupKey(keyboardView, R.id.key_d, "d");
@@ -52,7 +94,7 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.key_l, "l");
         setupKey(keyboardView, R.id.key_ç, "ç");
 
-        //Terceira fileira
+        // Terceira fileira
         setupKey(keyboardView, R.id.key_z, "z");
         setupKey(keyboardView, R.id.key_x, "x");
         setupKey(keyboardView, R.id.key_c, "c");
@@ -63,7 +105,6 @@ public class MyInputMethodService extends InputMethodService {
 
         setupKey(keyboardView, R.id.virgula, ",");
         setupKey(keyboardView, R.id.ponto, ".");
-
 
         setupDeleteKey(keyboardView);
         setupShiftKey(keyboardView);
@@ -95,17 +136,6 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.parenteses2, ")");
         setupKey(keyboardView, R.id.barra, "/");
 
-        setupKey(keyboardView, R.id.asterisco, "*");
-        setupKey(keyboardView, R.id.aspasduplas, "\"");
-        setupKey(keyboardView, R.id.asplassimples, "'");
-        setupKey(keyboardView, R.id.doispontos, ":");
-        setupKey(keyboardView, R.id.pontoevirgula, ";");
-        setupKey(keyboardView, R.id.exclamacao, "!");
-        setupKey(keyboardView, R.id.interrogacao, "?");
-
-        setupKey(keyboardView, R.id.virgula, ",");
-        setupKey(keyboardView, R.id.ponto, ".");
-
         setupDeleteKey(keyboardView);
         setupShiftKey(keyboardView);
         setupSpaceKey(keyboardView);
@@ -122,6 +152,7 @@ public class MyInputMethodService extends InputMethodService {
             if (inputConnection != null) {
                 String finalText = isShifted ? text.toUpperCase() : text.toLowerCase();
                 inputConnection.commitText(finalText, 1);
+                verificarOrtografia(finalText);
             }
         });
 
@@ -161,6 +192,7 @@ public class MyInputMethodService extends InputMethodService {
             if (inputConnection != null) {
                 String finalText = isShifted ? text.toUpperCase() : text.toLowerCase();
                 inputConnection.commitText(finalText, 1);
+                verificarOrtografia(finalText);
             }
         });
     }
@@ -202,18 +234,50 @@ public class MyInputMethodService extends InputMethodService {
         doneButton.setOnClickListener(v -> {
             InputConnection inputConnection = getCurrentInputConnection();
             if (inputConnection != null) {
-                inputConnection.commitText("\n", 1);
+                inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
             }
         });
     }
 
     private void switchToNumericKeyboard() {
-        isNumericMode = true;
         setInputView(numericKeyboardView);
+        isNumericMode = true;
     }
 
     private void switchToAlphabeticKeyboard() {
-        isNumericMode = false;
         setInputView(alphabeticKeyboardView);
+        isNumericMode = false;
+    }
+
+    private void verificarOrtografia(String palavra) {
+        if (spellCheckerSession != null) {
+            spellCheckerSession.getSuggestions(
+                    new android.view.textservice.TextInfo(palavra),
+                    5
+            );
+        } else {
+            Log.e("MeuTeclado", "SpellCheckerSession está nula");
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (spellCheckerSession != null) {
+            spellCheckerSession.close();
+        }
+        super.onDestroy();
+    }
+
+
+    private void mostrarSugestoes(List<String> sugestoes) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sugestões");
+        builder.setItems(sugestoes.toArray(new String[0]), (dialog, which) -> {
+            InputConnection inputConnection = getCurrentInputConnection();
+            if (inputConnection != null) {
+                inputConnection.commitText(sugestoes.get(which), 1);
+            }
+        });
+        builder.show();
     }
 }
