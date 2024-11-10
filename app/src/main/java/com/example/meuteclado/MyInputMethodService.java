@@ -213,9 +213,10 @@ public class MyInputMethodService extends InputMethodService {
         Button shiftButton = keyboardView.findViewById(R.id.shift);
         shiftButton.setOnClickListener(v -> {
             isShifted = !isShifted;
+            updateKeyboard(keyboardView);
 
             if (isShifted) {
-                shiftButton.getBackground().setColorFilter(Color.parseColor("#A09F9F"), PorterDuff.Mode.MULTIPLY);
+                shiftButton.getBackground().setColorFilter(Color.parseColor("#7E7D7D"), PorterDuff.Mode.MULTIPLY);
             } else {
                 shiftButton.getBackground().clearColorFilter();
             }
@@ -263,7 +264,6 @@ public class MyInputMethodService extends InputMethodService {
         }
     }
 
-
     @Override
     public void onDestroy() {
         if (spellCheckerSession != null) {
@@ -283,5 +283,56 @@ public class MyInputMethodService extends InputMethodService {
             }
         });
         builder.show();
+    }
+
+
+    public void updateKeyboard(View keyboardView) {
+        updateKeyText(keyboardView, R.id.key_q, "Q");
+        updateKeyText(keyboardView, R.id.key_w, "W");
+        updateKeyWithPopup(keyboardView, R.id.key_e, "E", new String[]{"É", "Ê", "È"});
+        updateKeyText(keyboardView, R.id.key_r, "R");
+        updateKeyText(keyboardView, R.id.key_t, "T");
+        updateKeyText(keyboardView, R.id.key_y, "Y");
+        updateKeyWithPopup(keyboardView, R.id.key_u, "U", new String[]{"Ú", "Û", "Ù"});
+        updateKeyWithPopup(keyboardView, R.id.key_i, "I", new String[]{"Í", "Î", "Ì"});
+        updateKeyWithPopup(keyboardView, R.id.key_o, "O", new String[]{"Ó", "ô", "Ò"});
+        updateKeyText(keyboardView, R.id.key_p, "P");
+
+        updateKeyWithPopup(keyboardView, R.id.key_a, "A", new String[]{"Á", "Â", "À"});
+        updateKeyText(keyboardView, R.id.key_s, "S");
+        updateKeyText(keyboardView, R.id.key_d, "D");
+        updateKeyText(keyboardView, R.id.key_f, "F");
+        updateKeyText(keyboardView, R.id.key_g, "G");
+        updateKeyText(keyboardView, R.id.key_h, "H");
+        updateKeyText(keyboardView, R.id.key_j, "J");
+        updateKeyText(keyboardView, R.id.key_k, "K");
+        updateKeyText(keyboardView, R.id.key_l, "L");
+        updateKeyText(keyboardView, R.id.key_ç, "Ç");
+
+        updateKeyText(keyboardView, R.id.key_z, "Z");
+        updateKeyText(keyboardView, R.id.key_x, "X");
+        updateKeyText(keyboardView, R.id.key_c, "C");
+        updateKeyText(keyboardView, R.id.key_v, "V");
+        updateKeyText(keyboardView, R.id.key_b, "B");
+        updateKeyText(keyboardView, R.id.key_n, "N");
+        updateKeyText(keyboardView, R.id.key_m, "M");
+    }
+
+    private void updateKeyText(View keyboardView, int buttonId, String text) {
+        Button button = keyboardView.findViewById(buttonId);
+        if (isShifted) {
+            button.setText(text.toUpperCase());
+        } else {
+            button.setText(text.toLowerCase());
+        }
+    }
+
+    private void updateKeyWithPopup(View keyboardView, int buttonId, String mainText, String[] popupOptions) {
+        Button button = keyboardView.findViewById(buttonId);
+        if (isShifted) {
+            button.setText(mainText.toUpperCase());
+        } else {
+            button.setText(mainText.toLowerCase());
+        }
     }
 }
