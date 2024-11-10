@@ -2,6 +2,8 @@ package com.example.meuteclado;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.inputmethodservice.InputMethodService;
 import android.os.Build;
 import android.util.Log;
@@ -211,6 +213,12 @@ public class MyInputMethodService extends InputMethodService {
         Button shiftButton = keyboardView.findViewById(R.id.shift);
         shiftButton.setOnClickListener(v -> {
             isShifted = !isShifted;
+
+            if (isShifted) {
+                shiftButton.getBackground().setColorFilter(Color.parseColor("#A09F9F"), PorterDuff.Mode.MULTIPLY);
+            } else {
+                shiftButton.getBackground().clearColorFilter();
+            }
         });
     }
 
