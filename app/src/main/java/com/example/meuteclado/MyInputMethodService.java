@@ -6,9 +6,11 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.inputmethodservice.InputMethodService;
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.view.textservice.SentenceSuggestionsInfo;
@@ -199,13 +201,42 @@ public class MyInputMethodService extends InputMethodService {
         });
     }
 
+    private Handler deleteHandler;
+    private Runnable deleteRunnable;
+    private boolean isDeleting = false;
+
     private void setupDeleteKey(View keyboardView) {
         Button deleteButton = keyboardView.findViewById(R.id.delete);
-        deleteButton.setOnClickListener(v -> {
-            InputConnection inputConnection = getCurrentInputConnection();
-            if (inputConnection != null) {
-                inputConnection.deleteSurroundingText(1, 0);
+        InputConnection inputConnection = getCurrentInputConnection();
+
+        // Inicializa o Handler e o Runnable para deletar continuamente
+        deleteHandler = new Handler();
+        deleteRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (inputConnection != null && isDeleting) {
+                    inputConnection.deleteSurroundingText(1, 0);
+                    deleteHandler.postDelayed(this, 120);
+                }
             }
+        };
+
+        // Define o OnTouchListener para detectar toque e segurar
+        deleteButton.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    // Inicia a exclusão contínua
+                    isDeleting = true;
+                    deleteHandler.post(deleteRunnable);
+                    return true;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    // Para a exclusão contínua quando o botão é solto
+                    isDeleting = false;
+                    deleteHandler.removeCallbacks(deleteRunnable);
+                    return true;
+            }
+            return false;
         });
     }
 
