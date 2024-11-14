@@ -145,7 +145,6 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.barra, "/");
 
         setupDeleteKey(keyboardView);
-        setupShiftKey(keyboardView);
         setupSpaceKey(keyboardView);
         setupDoneKey(keyboardView);
 
