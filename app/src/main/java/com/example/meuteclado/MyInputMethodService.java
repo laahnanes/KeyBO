@@ -31,9 +31,13 @@ public class MyInputMethodService extends InputMethodService {
     private boolean isNumericMode = false;
     private View alphabeticKeyboardView;
     private View numericKeyboardView;
+    private Handler deleteHandler;
+    private Runnable deleteRunnable;
+    private boolean isDeleting = false;
 
     private TextServicesManager textServicesManager;
     private SpellCheckerSession spellCheckerSession;
+
 
     @Override
     public void onCreate() {
@@ -201,10 +205,6 @@ public class MyInputMethodService extends InputMethodService {
         });
     }
 
-    private Handler deleteHandler;
-    private Runnable deleteRunnable;
-    private boolean isDeleting = false;
-
     private void setupDeleteKey(View keyboardView) {
         Button deleteButton = keyboardView.findViewById(R.id.delete);
         InputConnection inputConnection = getCurrentInputConnection();
@@ -214,12 +214,14 @@ public class MyInputMethodService extends InputMethodService {
         deleteRunnable = new Runnable() {
             @Override
             public void run() {
+                InputConnection inputConnection = getCurrentInputConnection();
                 if (inputConnection != null && isDeleting) {
                     inputConnection.deleteSurroundingText(1, 0);
                     deleteHandler.postDelayed(this, 120);
                 }
             }
         };
+
 
         // Define o OnTouchListener para detectar toque e segurar
         deleteButton.setOnTouchListener((v, event) -> {
