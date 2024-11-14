@@ -5,9 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.inputmethodservice.InputMethodService;
-import android.os.Build;
 import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -143,6 +141,17 @@ public class MyInputMethodService extends InputMethodService {
         setupKey(keyboardView, R.id.parenteses1, "(");
         setupKey(keyboardView, R.id.parenteses2, ")");
         setupKey(keyboardView, R.id.barra, "/");
+
+        setupKey(keyboardView, R.id.asterisco,"*");
+        setupKey(keyboardView, R.id.aspasduplas, "''");
+        setupKey(keyboardView, R.id.asplassimples, "'");
+        setupKey(keyboardView, R.id.doispontos,":");
+        setupKey(keyboardView, R.id.pontoevirgula,";");
+        setupKey(keyboardView, R.id.exclamacao,"!");
+        setupKey(keyboardView, R.id.interrogacao,"?");
+
+        setupKey(keyboardView, R.id.virgula,",");
+        setupKey(keyboardView, R.id.ponto, ".");
 
         setupDeleteKey(keyboardView);
         setupSpaceKey(keyboardView);
